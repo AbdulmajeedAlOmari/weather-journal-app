@@ -37,13 +37,13 @@ async function clickedGenerate() {
   const zipCode = zipCodeInput.value;
   const feeling = feelingInput.value;
 
-  console.log(`Clicked generate with params: { zipCode: ${zipCode}, feeling: ${feeling} }`);
+  // console.log(`Clicked generate with params: { zipCode: ${zipCode}, feeling: ${feeling} }`);
 
   // Validate input, show error message if not completed
   const hasError = validateInput(zipCode, feeling);
 
   if(hasError) {
-    console.log('Error detected in fields, stop processing...')
+    // console.log('Error detected in fields, stop processing...')
     // Do nothing
     return;
   }
@@ -85,7 +85,7 @@ async function clickedGenerate() {
 async function getWeatherData(zipCode) {
 
   // Open Weather API URL
-  const weatherApiURL = openWeatherMapURL + `?zip=${zipCode}&appid=${openWeatherMapApiKey}`
+  const weatherApiURL = openWeatherMapURL + `?zip=${zipCode}&appid=${openWeatherMapApiKey}&units=imperial`
 
   return new Promise((resolve, reject) => {
     fetch(weatherApiURL)
